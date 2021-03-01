@@ -8,7 +8,7 @@ on run {input, parameters}
 		repeat with macAlias in input
 			set unixPathList to unixPathList & quoted form of POSIX path of macAlias & " "
 		end repeat
-		set the clipboard to unixPathList
+		set the clipboard to unixPathList --ToDo: fix trailing space
 	end if
 
 	return input
