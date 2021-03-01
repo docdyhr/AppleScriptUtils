@@ -1,15 +1,15 @@
-(*
-AppleScript to copy current path for a single file. The service should be implemented as Quick Workflow with the Automator app in MacOSX.
-
-thomas@dyhr.com 2019
-*)
-
+(* Version 1.1 with multiple unix paths thomas@dyhr.com March 2021 *)
 on run {input, parameters}
-    if the count of input is 1 then
-        set the clipboard to quoted form of POSIX path of input
-    else
-        display alert "Multible selections are not allowed!" as warning giving up after 5
-    end if
+	if the (count of input) is 1 then --normal usecase
+         --qouted form is more secure with the use of space in mac alias
+		set the clipboard to quoted form of POSIX path of input
+	else
+		set unixPathList to ""
+		repeat with macAlias in input
+			set unixPathList to unixPathList & quoted form of POSIX path of macAlias & " "
+		end repeat
+		set the clipboard to unixPathList
+	end if
 
-    return input
+	return input
 end run
