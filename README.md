@@ -3,7 +3,7 @@ Applescripts, workflows and services for Mac
 
 ## Services:
 Implement with the Automator App as a Quick Command.
-### Copy Path
+### copy path
 applescript to copy current path as POSIX path  from the service menu CTRL + CLICK (version 1.1) 
 
 ### sha256sum
