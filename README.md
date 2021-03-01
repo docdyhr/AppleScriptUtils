@@ -1,8 +1,10 @@
 # AppleScript Utilities
-Various applescripts, workflows and services for Mac OS X
+Applescripts, workflows and services for Mac
 
+## Services:
+Implement with the Automator App as a Quick Command.
 ### Copy Path
-applescript to copy current path from the service menu in MacOS. Implement with the Automator App as a Quick Command.
+applescript to copy current path as POSIX path  from the service menu CTRL + CLICK (version 1.1) 
 
 ### sha256sum
-applescript to quickly calculate and compare a give file and 256 checksum like _shasum -a 256 ubuntu.iso_
+applescript to quickly calculate and compare a 256 checksum for a downloaded file
