@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/github/license/docdyhr/AppleScriptUtils)](https://github.com/docdyhr/AppleScriptUtils/blob/master/LICENSE) [![GitHub license](https://img.shields.io/github/license/docdyhr/AppleScriptUtils)](https://github.com/docdyhr/AppleScriptUtils/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/docdyhr/AppleScriptUtils)](https://github.com/docdyhr/AppleScriptUtils/blob/master/LICENSE)
 # AppleScript Utilities
 
 Applescripts, workflows and services for Mac
