@@ -1,10 +1,11 @@
-[![GitHub license](https://img.shields.io/github/license/docdyhr/AppleScriptUtils)](https://github.com/docdyhr/AppleScriptUtils/blob/master/LICENSE)
-
 <p align="center">
   <img src="/images/logo.png" alt="Project Logo" width="200"/>
 </p>
 
 # AppleScript Utilities
+
+[![AppleScript](https://img.shields.io/badge/AppleScript-Intro-brightgreen)](https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)
+[![GitHub license](https://img.shields.io/github/license/docdyhr/AppleScriptUtils)](https://github.com/docdyhr/AppleScriptUtils/blob/master/LICENSE)
 
 Applescripts, workflows and services for Mac
 
