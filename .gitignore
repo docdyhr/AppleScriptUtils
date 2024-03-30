@@ -206,5 +206,3 @@ tempCodeRunnerFile.py
 # local envrc folder
 .envrc
 .vscode
-.DS_Store
-images/.DS_Store
