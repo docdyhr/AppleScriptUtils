@@ -1,0 +1,62 @@
+#!/bin/zsh
+
+show_alert() {
+  /usr/bin/osascript -e "display alert \"$1\" message \"$2\""
+}
+
+# Debug: collect Finder input
+files=("$@")
+
+if [[ ${#files[@]} -ne 1 ]]; then
+  show_alert "SHA-256 Check" "Automator received ${#files[@]} item(s), not exactly one file.
+
+Try right-clicking the file directly in Finder → Quick Actions."
+  exit 0
+fi
+
+file="${files[1]}"
+
+if [[ ! -f "$file" ]]; then
+  show_alert "SHA-256 Check" "Selected item is not a regular file:
+
+$file"
+  exit 0
+fi
+
+expected=$(/usr/bin/osascript <<'APPLESCRIPT'
+set r to display dialog "Paste expected SHA-256 hash:" default answer "" buttons {"Cancel", "Check"} default button "Check"
+text returned of r
+APPLESCRIPT
+)
+
+expected=$(echo "$expected" \
+  | /usr/bin/tr '[:upper:]' '[:lower:]' \
+  | /usr/bin/tr -d '[:space:]' \
+  | /usr/bin/sed 's/^sha256://')
+
+if [[ ! "$expected" =~ ^[a-f0-9]{64}$ ]]; then
+  show_alert "SHA-256 Check" "Invalid SHA-256.
+
+It must be exactly 64 hexadecimal characters."
+  exit 0
+fi
+
+actual=$(/usr/bin/shasum -a 256 "$file" | /usr/bin/awk '{print $1}')
+
+filename=$(/usr/bin/basename "$file")
+
+if [[ "$actual" == "$expected" ]]; then
+  show_alert "SHA-256 OK" "✅ Match:
+
+$filename"
+else
+  show_alert "SHA-256 MISMATCH" "❌ File: $filename
+
+Expected:
+$expected
+
+Actual:
+$actual"
+fi
+
+exit 0
