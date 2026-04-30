@@ -11,7 +11,7 @@ Applescripts, workflows and services for Mac
 
 Implement with the Automator App as a Quick Service.
 
-### Verify SHA-256
+### Verify SHA-256 1.0
 
 SHA-256 Finder Quick Action
 
