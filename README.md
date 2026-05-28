@@ -1,3 +1,13 @@
+<div align="right">
+
+<a href="https://railway.com?referralCode=QhjuBc">
+
+  <img width="160" src="https://raw.githubusercontent.com/docdyhr/.github/main/assets/railway-corner-v2@2x.png" alt="Deploy on Railway — $20 free credits">
+
+</a>
+
+</div>
+
 <p align="center">
   <img src="/images/logo.png" alt="Project Logo" width="200"/>
 </p>
