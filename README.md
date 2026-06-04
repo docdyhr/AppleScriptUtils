@@ -40,13 +40,13 @@ applescript service to copy the POSIX path(s) of the selected Finder item(s) to 
 
 applescript service to calculate the md5sum of a downloaded file from the service menu in Finder with [CTRL] + CLICK
 
-### sha256 service applescript version 1.0
+### sha256 service applescript version 1.2
 
-applescript service to calculate the sha256 with openssl of a downloaded file from the service menu in Finder with [CTRL] + CLICK
+applescript service to calculate the sha256 with openssl of a downloaded file from the service menu in Finder with [CTRL] + CLICK (v1.2 fixes hash extraction for file paths containing spaces)
 
-### sha1 service applescript version 1.0
+### sha1 service applescript version 1.2
 
-applescript service to calculate the sha1 sum with openssl of a downloaded file from the service menu in Finder with [CTRL] + CLICK
+applescript service to calculate the sha1 sum with openssl of a downloaded file from the service menu in Finder with [CTRL] + CLICK (v1.2 fixes hash extraction for file paths containing spaces)
 
 ### sha256sum version 0.9
 

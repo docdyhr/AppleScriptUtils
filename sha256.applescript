@@ -1,5 +1,6 @@
-(* Version 1.1  thomas@dyhr.com March 2021 
+(* Version 1.2  thomas@dyhr.com March 2021
 note: implement with automator - service - run applescript
+v1.2: extract hash with awk '{print $NF}' so paths containing spaces work
 *)
 on run {input, parameters}
 	
@@ -18,7 +19,7 @@ on run {input, parameters}
 	set checkSum to the text returned of (display dialog "Paste SHA256" default answer "" with title fileName)
 	
 	-- Calculate MD5 sum checksum quitely and translate to UPPER case
-	set checkSumResult to first word of (do shell script "/usr/bin/openssl dgst -sha256 " & quoted form of POSIX path of chosenFile & " | awk '{print $2}'")
+	set checkSumResult to first word of (do shell script "/usr/bin/openssl dgst -sha256 " & quoted form of POSIX path of chosenFile & " | awk '{print $NF}'")
 	
 	
 	-- compairing check sums
