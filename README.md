@@ -32,9 +32,9 @@ against a user-provided value.
 
 Implement with the Automator App as a Quick Command.
 
-### copy path service applescript version 1.1
+### copy path service applescript version 2.0
 
-applescript service to copy current path as POSIX $PATH from the service menu in Finder with [CTRL] + CLICK
+applescript service to copy the POSIX path(s) of the selected Finder item(s) to the clipboard from the service menu in Finder with [CTRL] + CLICK. Paths are shell-quoted with `quoted form`, so they paste safely into Terminal even when names contain spaces or shell metacharacters; multiple selections are joined with spaces as a ready-to-paste command line.
 
 ### md5 service applescript version 1.0
 
