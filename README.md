@@ -56,9 +56,11 @@ Drag & Drop applescript to quickly calculate and compare a 256 checksum for a do
 
 applescript to open current folder in Terminal from the Toolbar (save the applescript as an applescript application and store it Applications. Change the app icon if you want. Hold down the Command (⌘) key, then drag your script application to the toolbar of the Finder window.)
 
-### Convert to Markdown version 1.0
+### Convert to Markdown version 1.1
 
 This AppleScript converts the currently selected HTML text to Markdown format using Pandoc, then copies the converted Markdown text to the clipboard. To use it, select HTML text, run the script, and the Markdown version will be ready to paste from your clipboard.
+
+Pandoc is located automatically, so the script works on both Apple Silicon (`/opt/homebrew`) and Intel (`/usr/local`) Macs, as well as MacPorts (`/opt/local`) — no hardcoded path to adjust. If Pandoc is missing it shows an alert; install it with `brew install pandoc`.
 
 ## How to create an AppleScript service with Automator
 
@@ -92,9 +94,18 @@ Select "Quick Action" as the type of your document.
 ```applescript
 on run {input, parameters}
     set inputText to input as string
-    set pandocPath to "/usr/local/bin/pandoc" -- Adjust if your pandoc installation path is different
-    -- Pandoc will try to auto-detect the input format
-    set markdownText to do shell script pandocPath & " -t markdown <<< " & quoted form of inputText
+    -- `do shell script` runs with a minimal PATH, so add the usual install
+    -- dirs: Homebrew on Apple Silicon (/opt/homebrew) and Intel (/usr/local),
+    -- plus MacPorts (/opt/local). pandoc is then resolved wherever it lives.
+    set shellPrefix to "export PATH=/opt/homebrew/bin:/usr/local/bin:/opt/local/bin:$PATH; "
+    try
+        set pandocPath to do shell script shellPrefix & "command -v pandoc"
+    on error
+        display alert "Pandoc not found" message "Install it with:  brew install pandoc" as critical
+        return
+    end try
+    set markdownText to do shell script quoted form of pandocPath & " -f html -t markdown <<< " & quoted form of inputText
+    set the clipboard to markdownText
     return markdownText
 end run
 ```
